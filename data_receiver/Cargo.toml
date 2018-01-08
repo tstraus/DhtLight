@@ -1,0 +1,11 @@
+[package]
+name = "listener"
+version = "0.1.0"
+authors = ["Tucker Strausbaugh <tckrsstrsbgh@gmail.com>"]
+
+[[bin]]
+name = "listener"
+path = "src/listener.rs"
+
+[dependencies]
+serde_json = "*"
