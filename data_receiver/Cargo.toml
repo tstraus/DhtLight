@@ -1,11 +1,11 @@
 [package]
-name = "listener"
+name = "data_receiver"
 version = "0.1.0"
 authors = ["Tucker Strausbaugh <tckrsstrsbgh@gmail.com>"]
 
 [[bin]]
-name = "listener"
-path = "src/listener.rs"
+name = "data_receiver"
+path = "src/data_receiver.rs"
 
 [dependencies]
 serde_json = "*"

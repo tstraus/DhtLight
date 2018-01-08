@@ -23,7 +23,7 @@ fn main() {
             println!("light: {}", v["light"]);
             println!("temp: {}", v["temp"]);
             println!("humidity: {}", v["humidity"]);
-            println!("heatIndex: {}", v["heatIndex"]);
+            println!("heatIndex: {}\n", v["heatIndex"]);
         }
 
         sleep(Duration::from_millis(100));
