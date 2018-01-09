@@ -11,6 +11,7 @@ use std::net::UdpSocket;
 use std::time::Duration;
 use std::thread::sleep;
 use std::fs::File;
+use std::fs::OpenOptions;
 use std::io::Write;
 use chrono::{TimeZone, Utc};
 use chrono_tz::US::Eastern;
@@ -26,7 +27,7 @@ struct Data {
 fn main() {
     // create csv file and write data format
     let mut file = File::create("./data.csv").expect("couldn't create file");
-    file.write("time, light, temp(F), humidity(%), heatIndex(F)".as_bytes()).unwrap();
+    file.write("time, light, temp(F), humidity(%), heatIndex(F)\n".as_bytes()).unwrap();
     drop(file);
 
     // create socket and buffer
@@ -56,8 +57,8 @@ fn main() {
             println!("heat_index: {}", data.heat_index);
 
             // append data to csv file
-            let mut file = File::open("./data.csv").expect("couldn't open file");
-            write!(file, "{}, {}, {}, {}, {}", time, data.light, data.temp, data.humidity, data.heat_index).unwrap();
+            file = OpenOptions::new().append(true).open("./data.csv").expect("couldn't open file");
+            write!(file, "{}, {}, {}, {}, {}\n", time, data.light, data.temp, data.humidity, data.heat_index).unwrap();
         }
 
         sleep(Duration::from_millis(100));
