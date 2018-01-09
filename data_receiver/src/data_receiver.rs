@@ -7,7 +7,8 @@ use std::thread::sleep;
 use serde_json::Value;
 
 fn main() {
-    let socket = UdpSocket::bind("192.168.0.107:1234").expect("couldn't bind to address");
+    //let socket = UdpSocket::bind("45.76.20.89:3420").expect("couldn't bind to address");
+    let socket = UdpSocket::bind("tstra.us:3420").expect("couldn't bind to address");
 
     loop {
         let mut buf: [u8; 4096] = [0; 4096];
