@@ -9,3 +9,5 @@ path = "src/data_receiver.rs"
 
 [dependencies]
 serde_json = "*"
+chrono = "*"
+chrono-tz = "*"
