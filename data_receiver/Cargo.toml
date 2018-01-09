@@ -8,6 +8,8 @@ name = "data_receiver"
 path = "src/data_receiver.rs"
 
 [dependencies]
+serde = "*"
 serde_json = "*"
+serde_derive = "*"
 chrono = "*"
 chrono-tz = "*"

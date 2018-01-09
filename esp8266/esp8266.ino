@@ -14,7 +14,7 @@ const char* password = "64137896";
 int light = 0;
 float temp = 0.0f;
 float humidity = 0.0f;
-float heatIndex = 0.0f;
+float heat_index = 0.0f;
 
 char buffer[64];
 
@@ -71,15 +71,15 @@ void loop() {
     // read from the DHT22
     temp = dht.readTemperature(true);
     humidity = dht.readHumidity();
-    heatIndex = dht.computeHeatIndex(temp, humidity);
+    heat_index = dht.computeHeatIndex(temp, humidity);
 
     // check for valid data
-    if (!isnan(temp) && !isnan(humidity) && !isnan(heatIndex))
+    if (!isnan(temp) && !isnan(humidity) && !isnan(heat_index))
     {
         Serial.println(light);
         Serial.println(temp);
         Serial.println(humidity);
-        Serial.println(heatIndex);
+        Serial.println(heat_index);
 
         // send udp packet
         //client.beginPacket("45.76.20.89", 3420);
@@ -93,8 +93,8 @@ void loop() {
         client.write(",\"humidity\":");
         snprintf(buffer, sizeof buffer, "%f", humidity);
         client.write(buffer);
-        client.write(",\"heatIndex\":");
-        snprintf(buffer, sizeof buffer, "%f", heatIndex);
+        client.write(",\"heat_index\":");
+        snprintf(buffer, sizeof buffer, "%f", heat_index);
         client.write(buffer);
         client.write("}");
         client.endPacket();
