@@ -82,7 +82,8 @@ void loop() {
         Serial.println(heatIndex);
 
         // send udp packet
-        client.beginPacket("192.168.0.107", 1234);
+        //client.beginPacket("45.76.20.89", 3420);
+        client.beginPacket("tstra.us", 3420);
         client.write("{\"light\":");
         itoa(light, buffer, 10);
         client.write(buffer);
