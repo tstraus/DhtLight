@@ -28,11 +28,11 @@ fn main() {
             println!("light: {}", v["light"]);
             println!("temp: {}", v["temp"]);
             println!("humidity: {}", v["humidity"]);
-            println!("heatIndex: {}\n", v["heatIndex"]);
+            println!("heatIndex: {}", v["heatIndex"]);
 
             let utc = Utc::now().naive_utc();
             let time = Eastern.from_utc_datetime(&utc);
-            println!("{}", time);
+            println!("{}\n", time);
         }
 
         sleep(Duration::from_millis(100));
