@@ -100,5 +100,5 @@ void loop() {
         client.endPacket();
     }
     
-    delay(2500);
+    delay(60000);
 }
