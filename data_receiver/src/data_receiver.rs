@@ -26,7 +26,9 @@ struct Data {
 
 fn main() {
     // create csv file and write data format
-    let mut file = File::create("./data.csv").expect("couldn't create file");
+    let utc = Utc::now().naive_utc();
+    let filename = format!("../data/csv/{}.csv", Eastern.from_utc_datetime(&utc));
+    let mut file = File::create(filename.clone()).expect("couldn't create file");
     file.write("time, light, temp(F), humidity(%), heatIndex(F)\n".as_bytes()).unwrap();
     drop(file);
 
@@ -57,7 +59,7 @@ fn main() {
             println!("heat_index: {}", data.heat_index);
 
             // append data to csv file
-            file = OpenOptions::new().append(true).open("./data.csv").expect("couldn't open file");
+            file = OpenOptions::new().append(true).open(filename.clone()).expect("couldn't open file");
             write!(file, "{}, {}, {}, {}, {}\n", time, data.light, data.temp, data.humidity, data.heat_index).unwrap();
         }
 

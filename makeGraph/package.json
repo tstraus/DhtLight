@@ -1,0 +1,30 @@
+{
+  "name": "data_to_graph",
+  "version": "0.1.0",
+  "description": "makes graphs of the data received by the rust server",
+  "main": "makeGraph.js",
+  "scripts": {
+    "run": "node makeGraph.js",
+    "test": "standard --fix --verbose | snazzy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tstraus/DhtLight.git"
+  },
+  "author": "Tucker Strausbaugh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tstraus/DhtLight/issues"
+  },
+  "homepage": "https://github.com/tstraus/DhtLight#readme",
+  "devDependencies": {
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "commander": "^2.13.0",
+    "lodash": "^4.17.4",
+    "papaparse": "^4.3.6",
+    "plotly": "^1.0.6"
+  }
+}
